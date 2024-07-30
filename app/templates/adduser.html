@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add user</title>
+
+</head>
+<body>
+<h2>创建用户</h2>
+<div>
+<form action="{{url_for('add')}}" method="POST">
+
+    用户名：<input type="text" name="username" required><br>
+    密码：<input type="password" name="password" required><br>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <button type="submit" >创建</button>
+</form>
+</div>
+
+</body>
+</html>

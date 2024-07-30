@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Case Editor</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input[type="text"], textarea { width: 100%; padding: 8px; }
+        button { padding: 10px 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul> <!-- 确保 ul 标签被正确关闭 -->
+      {% endif %}
+    {% endwith %}
+
+    <div id="root">
+        <h1>创建用例</h1>
+        <form action="{{ url_for('createusecase') }}" method="POST">
+
+            <div class="form-group">
+                <label for="casename">Case Name:</label>
+                <input type="text" id="casename" name="casename" required>
+            </div>
+            <div class="form-group">
+                <label for="precondition">Precondition:</label>
+                <textarea id="precondition" name="precondition"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="usecasestep">Use Case Step:</label>
+                <textarea id="usecasestep" name="usecasestep" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="preresult">Pre Result:</label>
+
+                <input type="text" name="preresult">
+            </div>
+            <div class="form-group">
+                <label for="usecasetype">Use Case Type:</label>
+                <input type="text" id="usecasetype" name="usecasetype" required>
+            </div>
+            <div class="form-group">
+                <label for="usecasestatus">Use Case Status:</label>
+                <input type="text" id="usecasestatus" name="usecasestatus" required>
+            </div>
+            <div class="form-group">
+                <label for="usecasepriority">Use Case Priority:</label>
+                <input type="text" id="usecasepriority" name="usecasepriority" required>
+            </div>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

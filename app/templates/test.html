@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>侧边导航栏示例</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .sidebar {
+            width: 200px; /* 侧边栏宽度 */
+            background-color: #333;
+            height: 100vh; /* 视口高度，确保侧边栏始终覆盖整个页面 */
+            position: sticky; /* 可选，使侧边栏在滚动时保持在视口中 */
+            top: 0; /* 与sticky一起使用，确保侧边栏始终位于顶部 */
+            overflow-y: auto; /* 允许侧边栏内容滚动 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around; /* 内容在侧边栏内均匀分布 */
+        }
+
+        .sidebar ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #111;
+        }
+
+        .content {
+            flex-grow: 1; /* 占据剩余空间 */
+            padding: 20px; /* 为内容区域添加内边距 */
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">关于我们</a></li>
+        <li><a href="#">产品</a></li>
+        <li><a href="#">服务</a></li>
+        <li><a href="#">联系我们</a></li>
+    </ul>
+</div>
+
+<div class="content">
+    <!-- 页面主要内容 -->
+    <h1>侧边导航栏示例页面</h1>
+    <p>这是一个使用侧边导航栏的示例页面。</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <style>
+        nav {
+               background-color: #333;
+               padding: 10px;
+               position:fixed;
+               height: 50px;
+               width: 100%;
+               top:0;
+               left:0;
+              }
+
+        nav ul {
+        list-style-type: none;
+        overflow: hidden;
+        display: flex;
+         }
+
+        nav ul li {
+             float: left;
+             }
+        nav ul li a {
+            display: block;
+            color:white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+nav ul li a:hover {
+    background-color: #111;
+}
+ </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="/" aria-label="首页链接">首页</a></li>
+        <li><a href="/user/userlist" aria-label="用户管理链接">用户管理</a></li>
+        <li><a href="/usecase" aria-label="用例管理链接">用例管理</a></li>
+        <li><a href="#" aria-label="测试论坛链接">测试论坛</a></li>
+        <li><a href="#" aria-label="接口测试链接">接口测试</a></li>
+    </ul>
+</nav>
+<main>
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>

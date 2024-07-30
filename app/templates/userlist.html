@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <!-- 引用外部CSS文件 -->
+    <link rel="stylesheet" href="../static/userlist.css">
+</head>
+<body>
+    {% extends "base01.html" %}
+    {% block content %}
+    <nav class="nav01">
+            <ul>
+                <li><a href="#">用户列表</a></li>
+                <li><a href="#">角色列表</a></li>
+                <li><a href="#">权限列表</a></li>
+            </ul>
+        </nav>
+
+    <main class="main-content">
+        <form action="{{url_for('createuserpage')}}" method="GET">
+            <button class="button1"> 创建用户</button>
+        </form>
+        <table class="usertable">
+            <thead>
+                <tr>
+                    <th>账号</th>
+                    <th>昵称</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr><td>{{ user.name }}</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    {% endblock %}
+    </body>
+</html>
